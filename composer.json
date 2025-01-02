@@ -11,7 +11,8 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-		"php": ">=5.3.7"
+		"php": ">=5.3.7",
+		"cweagans/composer-patches": "*"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
@@ -31,5 +32,17 @@
 	"require-dev": {
 		"mikey179/vfsstream": "1.6.*",
 		"phpunit/phpunit": "4.* || 5.* || 9.*"
+	},
+	"config": {
+		"allow-plugins": {
+			"cweagans/composer-patches": true
+		}
+	},
+	"extra": {
+		"patches": {
+			"mikey179/vfsstream": {
+				"Fix name{0} to name[0]": "patches/vfsstream-fix.patch"
+			}
+		}
 	}
 }
